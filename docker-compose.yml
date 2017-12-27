@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  puppet-server:
+    container_name: puppet-server
+    image: polinux/puppet-server:latest
+    ports:
+      - "8140:8140"
+    volumes:
+      - /path/to/ssh/private/key:/root/.ssh/id_rsa
+    environment:
+      ENVIRONMENTS_REPO_ADDRES: 'my.git.repo'
+      AUTO_SIGN_DOMAIMN: 'my-domain.com'
+

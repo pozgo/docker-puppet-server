@@ -1,0 +1,8 @@
+
+#####################################################################################
+### Note : Repository will require ssh key to be present in /root/.ssh/ directory ###
+#####################################################################################
+sources:
+  repository:
+    remote: 'ENVIRONMENTS_REPO_ADDRESS'
+    basedir: '/etc/puppetlabs/code/environments'
