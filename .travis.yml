@@ -12,4 +12,4 @@ script:
   - docker run -d -p 8140:8140 --name puppet polinux/puppet-server:travis
   - while true; do if docker logs puppet | grep "Puppet Server has successfully started"; then break; else sleep 1; fi done
 # Check connection on port 80
-  - nc -zc 127.0.0.1 8140
+  - nc -z 127.0.0.1 8140
