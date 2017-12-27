@@ -1,0 +1,15 @@
+
+services:
+  - docker
+  - nc
+before_install:
+  - docker --version
+
+script:
+# Build
+  - docker build -t polinux/puppet-server:travis .
+# Start httpd
+  - docker run -d -p 8140:8140 --name puppet polinux/puppet-server:travis
+  - while true; do if docker logs puppet | grep "[o.e.j.s.Server] Started"; then break; else sleep 1; fi done
+# Check connection on port 80
+  - nc -zc 127.0.0.1 8140
