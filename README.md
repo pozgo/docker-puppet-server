@@ -13,7 +13,7 @@
 Felling like supporting me in my projects use donate button. Thank You!  
 [![](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/POzgo)
 
-This is [Docker Image](https://registry.hub.docker.com/u/polinux/puppet-server/) with Puppet Server and `r10k` module with auto-sync. We are using offcial [puppet/puppetserver-standalone](https://hub.docker.com/r/puppet/puppetserver-standalone/) image as base on top of which we added missing `openssh-client` and `cron` for auto-sync capability.
+This is [Docker Image](https://registry.hub.docker.com/u/polinux/puppet-server/) with Puppet Server and `r10k` module with auto-sync. 
 
 User can specify private repository with environments used by `r10k` using provided variable. Please read below. 
 
@@ -37,7 +37,7 @@ User can specify private repository with environments used by `r10k` using provi
       -p 8140:8140 \
       polinux/puppet-server
 
-**This wil spin up just base puppet server same as using [base image](https://hub.docker.com/r/puppet/puppetserver-standalone/) by itself**
+**This wil spin up just base puppet server same as using [offcial image](https://hub.docker.com/r/puppet/puppetserver-standalone/)**
 
 #### Start with custom repository and certain domain name
 
@@ -82,3 +82,7 @@ docker history --no-trunc=true polinux/puppet-server | tr -s ' ' | tail -n+2 | a
 ## Author
 
 Przemyslaw Ozgo (<linux@ozgo.info>)
+
+---
+
+This Work was infulenced by official Puppet standalone image just build the way it should be. :) Thanks guys for the inspiration!
