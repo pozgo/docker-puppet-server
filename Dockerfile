@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 ENV ENVIRONMENTS_REPO_ADDRESS='' \
     SYNC_INTERVAL='* * * * *' \
     AUTO_SIGN_DOMAIMN='*.domain.com,domain.com' \
-    PUPPET_SERVER_VERSION="5.1.3" \
+    PUPPET_SERVER_VERSION="5.1.4" \
     DUMB_INIT_VERSION="1.2.0" \
     UBUNTU_CODENAME="xenial" \
     PUPPETSERVER_JAVA_ARGS="-Xms256m -Xmx256m" \
