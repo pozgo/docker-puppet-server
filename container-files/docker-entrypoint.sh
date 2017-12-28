@@ -22,10 +22,13 @@ else
 fi
 
 ## Add autosigne domain if specified
-if [ ${AUTO_SIGN_DOMAIMN} != 'domain.com' ]; then
+if [ ${AUTO_SIGN_DOMAIMN} != '*.domain.com,domain.com' ]; then
   sed -i 's|autosign = true|autosign = /etc/puppetlabs/puppet/autosign.conf|g' /etc/puppetlabs/puppet/puppet.conf
   echo "Adding domain: ${AUTO_SIGN_DOMAIMN} to autosign.conf"
-  echo "${AUTO_SIGN_DOMAIMN}" >> /etc/puppetlabs/puppet/autosign.conf
+  for i in $(echo ${AUTO_SIGN_DOMAIMN} | sed "s/,/ /g");
+    do
+      echo "${i}" >> /etc/puppetlabs/puppet/autosign.conf
+    done
 fi
 
 # Defult task 

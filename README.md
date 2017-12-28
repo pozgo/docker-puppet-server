@@ -23,9 +23,11 @@ User can specify private repository with environments used by `r10k` using provi
 |:--|:-:|--:|
 |`ENVIRONMENTS_REPO_ADDRESS`|Repository containing environments for puppet server. <sup>1</sup>|`ssh://git@my-repo.git.my.domain.com/puppet/environments.git`|
 |`SYNC_INTERVAL`|How often `r10k` should sync with repository. Defualt set to every minute. Cron based format|`* * * * *`|
-|`AUTO_SIGN_DOMAIMN`|Domain name from which puppet will autosign nodes|`*.domain.com`|
+|`AUTO_SIGN_DOMAIMN`|Domain name from which puppet will autosign nodes|`*.domain.com,domain.com`<sup>2</sup>|
 
 <sup>1</sup> More details on how to prepare such repository [here](https://github.com/puppetlabs/control-repo). If specified private repository user need to provide private key that need to be shared with the image. `-v /my_key:/root/.ssh/id_rsa`
+
+<sup>2</sup> Comma separated domain names.
 
 ### Usage
 

@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 ENV ENVIRONMENTS_REPO_ADDRESS='' \
     SYNC_INTERVAL='* * * * *' \
-    AUTO_SIGN_DOMAIMN='domain.com' \
+    AUTO_SIGN_DOMAIMN='*.domain.com,domain.com' \
     PUPPET_SERVER_VERSION="5.1.3" \
     DUMB_INIT_VERSION="1.2.0" \
     UBUNTU_CODENAME="xenial" \
@@ -15,8 +15,6 @@ LABEL \
         email="linux@ozgo.info" \
         version=$PUPPET_SERVER_VERSION \
         description="Puppet Server in docker and R10K with auto sync"
-
-
 
 RUN \
     apt-get clean && \
