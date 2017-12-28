@@ -31,7 +31,7 @@ RUN \
     apt-get install --no-install-recommends git -y puppetserver="$PUPPET_SERVER_VERSION"-1"$UBUNTU_CODENAME" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    gem install --no-rdoc --no-ri r10k
+    gem install --no-rdoc --no-ri r10k && \
     curl --insecure -o /etc/default/puppetserver https://raw.githubusercontent.com/pozgo/docker-puppet-server/master/puppetserver && \
     curl --insecure -o /etc/puppetlabs/puppetserver/logback.xml https://raw.githubusercontent.com/pozgo/docker-puppet-server/master/logback.xml && \
     curl --insecure -o /etc/puppetlabs/puppetserver/request-logging.xml https://raw.githubusercontent.com/pozgo/docker-puppet-server/master/request-logging.xml && \
