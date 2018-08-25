@@ -33,24 +33,43 @@ User can specify private repository with environments used by `r10k` using provi
 
 #### Basic 
 
-    docker run \
-      -d \
-      --name puppet-server \
-      -p 8140:8140 \
-      polinux/puppet-server
+```bash
+docker run \
+    -d \
+    --name puppet-server \
+    -p 8140:8140 \
+    polinux/puppet-server
+```
 
 **This wil spin up just base puppet server same as using [offcial image](https://hub.docker.com/r/puppet/puppetserver-standalone/)**
 
 #### Start with custom repository and certain domain name
 
-    docker run \
-      -d \
-      --name puppet-server \
-      -p 8140:8140 \
-      -v /path/to/private/key:/root/.ssh/id_rsa \
-      -e ENVIRONMENTS_REPO_ADDRESS='' \
-      -e AUTO_SIGN_DOMAIMN='*.domain.com' \
+```bash
+docker run \
+    -d \
+    --name puppet-server \
+    -p 8140:8140 \
+    -v /path/to/private/key:/root/.ssh/id_rsa \
+    -e ENVIRONMENTS_REPO_ADDRESS='' \
+    -e AUTO_SIGN_DOMAIMN='*.domain.com' \
+    polinux/puppet-server
+```
+
+#### Share ssl keys and modules with environments on host OS
+
+```bash
+docker run -d \
+    -- name puppet-server \
+    -p 8140:8140 \
+    -v /path/to/private/key:/root/.ssh/id_rsa \
+    -e ENVIRONMENTS_REPO_ADDRESS='' \
+    -e AUTO_SIGN_DOMAIMN='*.domain.com' \
+    -v host/os/dir/ssl:/etc/puppetlabs/puppet/ssl \
+    -v -v host/os/dir/code:/etc/puppetlabs/code \
       polinux/puppet-server
+```
+
 
 ### Build
 
